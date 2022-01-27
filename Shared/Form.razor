@@ -1,0 +1,42 @@
+﻿<!-- Formulär-komponent -->
+<!-- Enheterna är parametrar som kan skickas med -->
+<div class="form">
+	<form>
+		<label for="convert-from">Ange en siffra (@ConvertFrom)</label>
+		<input id="convert-from" type="number" @bind="Input"/>
+		<!-- Här skrivs resultatet ut -->
+		<p>@Result @ConvertTo</p>
+	</form>
+	<button @onclick="@Convert">Konvertera till @ConvertTo</button>
+</div>
+
+@code {
+	/* De första två properties är parametrar som lagrar enheterna */
+	[Parameter]
+	public string? ConvertFrom { get; set; }
+
+	[Parameter]
+	public string? ConvertTo { get; set; }
+
+	// Inmatat värde och resultat
+	public decimal Input { get; set; }
+
+	public decimal Result { get; set; }
+
+	/* Olika formler beroende på vilka enheter/parametrar som skickats med */
+	public void Convert()
+	{	
+		if (ConvertFrom == "meter" & ConvertTo == "fot")
+		{
+			Result = Math.Round(Input * 3.3m, 1);
+		}
+		else if (ConvertFrom == "km/h" & ConvertTo == "mph")
+		{
+			Result = Math.Round(Input * 0.62m);
+		}
+		else if(ConvertFrom == "kg" & ConvertTo == "lbs")
+		{
+			Result = Math.Round(Input / 0.450m, 1);
+		}
+	}
+}

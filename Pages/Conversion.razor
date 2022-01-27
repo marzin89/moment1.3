@@ -1,0 +1,21 @@
+﻿<!-- Routing -->
+@page "/conversion"
+
+<!-- Sidans namn -->
+<PageTitle>Konvertering</PageTitle>
+
+<!-- Innehåll -->
+<section>
+	<h1>Konvertering</h1>
+	<p>Här finns funktionalitet för konvertering. 
+		Notera att jag har lagt till ett formulär för konvertering av kilogram till pund.
+		Formulären har skapats som återanvändbara komponenter. 
+		Enheterna är dynamiska och skickas med som attribut. Se videon för detaljer.</p>
+</section>
+
+<!-- Formulär för konvertering. Notera parametrarna. -->
+<section>
+	<Form ConvertFrom="meter" ConvertTo="fot" />
+	<Form ConvertFrom="km/h" ConvertTo="mph" />
+	<Form ConvertFrom="kg" ConvertTo="lbs" />
+</section>

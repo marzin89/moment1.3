@@ -1,0 +1,55 @@
+﻿<!-- Bildspels-komponent -->
+<div id="slideshow">
+	<!-- URL är det aktuella array-indexet -->
+	<a href="@url[Next]">
+		<!-- Sökvägen är det aktuella array-indexet -->
+		<img src="NewFolder1/@images[Next]" />
+	</a>
+	<button class="previous-btn" @onclick="PreviousImage">Föregående</button>
+	<button class="next-btn" @onclick="NextImage">Nästa</button>
+</div>
+
+@code {
+	// Lagrar index
+	public int Next { get; set; }
+
+	// Array med sökvägar
+	public string[] images =
+		{
+			"att-göra-lista-desktop.jpg",
+			"CSS-uppgift-desktop.jpg",
+			"lufthotellet-desktop.jpg",
+			"malluppgift-desktop.jpg",
+			"php-rest-webbtjanst.jpg",
+			"webbutik-desktop.jpg"
+		};
+
+	// Array med URL:r
+	public string[] url =
+		{
+			"http://studenter.miun.se/~mazi2001/writeable/dt093g/Moment%202/",
+			"http://studenter.miun.se/~mazi2001/gd008g/Moment%204/",
+			"https://lufthotellet.komtext.nu/",
+			"http://studenter.miun.se/~mazi2001/gd008g/Moment%205/F%C3%A4rdig%20webbplats/index.html",
+			"https://studenter.miun.se/~mazi2001/writeable/dt173g/moment5/webbplats/",
+			"http://studenter.miun.se/~mazi2001/dt163g/Projekt/"
+		};
+
+	// Ökar index om detta är mindre än 5
+	public void NextImage()
+	{
+		if (Next < 5)
+		{
+			Next++;
+		}
+	}
+
+	// Minskar index om detta är större än 0
+	public void PreviousImage()
+	{
+		if (Next > 0)
+		{
+			Next--;
+		}
+	}
+}

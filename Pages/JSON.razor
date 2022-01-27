@@ -1,0 +1,69 @@
+﻿<!-- Routing -->
+@page "/json"
+
+<!-- Inkluderar HttpClient-->
+@inject HttpClient Http
+
+<!-- Sidans namn -->
+<PageTitle>JSON</PageTitle>
+
+<!-- Innehåll -->
+<h1>Tesorter</h1>
+<p>Nedan finns en lista på tesorter som jag gillar. 
+	Listan ligger i en JSON-fil som finns i mappen <i>sample-data</i>.
+	Innehållet läses in med HttpClient.</p>
+
+<section id="tea">
+	<!-- Kontrollerar om listan är tom -->
+	@if (teas == null)
+	{
+		<p>Laddar ...</p>
+	}
+	else
+	{
+		<!-- Utskrift -->
+		<table>
+			<thead>
+				<tr>
+					<th>Namn</th>
+					<th>Kategori</th>
+					<th>Land</th>
+					<th>Bryggtemperatur</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- Loopar igenom och skriver ut -->
+				@foreach(var tea in teas)
+				{
+					<tr>
+						<td>@tea.name</td>
+						<td>@tea.category</td>
+						<td>@tea.origin</td>
+						<td>@tea.temperature</td>
+					</tr>
+				}
+			</tbody>	
+		</table>
+	}
+</section>
+
+@code {
+	// Array med tesorterna
+	private Tea[]? teas;
+
+	// Läser in JSON-filen
+	protected override async Task OnInitializedAsync()
+	{
+		teas = await Http.GetFromJsonAsync<Tea[]>("sample-data/teas.json");
+	}
+
+	// Klass som hanterar tesorterna i JSON-filen
+	public class Tea
+	{
+		// Namn, kategori, land och bryggtemperatur
+		public string? name { get; set; }
+		public string? category { get; set; }
+		public string? origin { get; set; }
+		public string? temperature { get; set; }
+	}
+}

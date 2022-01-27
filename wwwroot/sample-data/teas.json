@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Darjeeling first flush",
+        "category": "Svart",
+        "origin": "Indien",
+        "temperature": "80 grader"
+    },
+    {
+        "name": "Assam",
+        "category": "Svart",
+        "origin": "Indien",
+        "temperature": "100 grader"
+    },
+    {
+        "name": "Sencha",
+        "category": "Gront",
+        "origin": "Japan",
+        "temperature": "80 grader"
+    },
+    {
+        "name": "Tieguanyin",
+        "category": "Oolong",
+        "origin": "Kina",
+        "temperature": "80 grader"
+    },
+    {
+        "name": "Longjing",
+        "category": "Gront",
+        "origin": "Kina",
+        "temperature": "80 grader"
+    },
+    {
+        "name": "Ceylon",
+        "category": "Svart",
+        "origin": "Sri Lanka",
+        "temperature": "100 grader"
+    },
+    {
+        "name": "Keemun",
+        "category": "Svart",
+        "origin": "Kina",
+        "temperature": "100 grader"
+    },
+    {
+        "name": "Bai Mudan",
+        "category": "Vitt",
+        "origin": "Kina",
+        "temperature": "80 grader"
+    }
+]
